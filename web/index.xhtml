@@ -1,14 +1,123 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        Hello from Facelets
-        <br />
-        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
+        <center>
+            <h1>Optimización de Alimento </h1>
+            <h2>Algoritmos Genéticos y Redes Bayesianas</h2>
+        </center>
+        <h:form title="datos Nutricional">
+            <table width="50%" align="center" border="0">
+                <tr>
+                    <td> <h2>Ingreso de Datos Nutricionales</h2></td>
+                </tr>
+                <tr>
+                    <td>Nombre:</td>
+                    <td> <h:inputText value="#{PersonaBean.nombre}"/> </td>
+                </tr>
+                <tr>
+                    <td>sodio(mg):</td>
+                    <td> <h:inputText value="#{PersonaBean.telefono}"/> </td>
+                </tr>
+                <tr>
+                    <td>calcio (mg):</td>
+                    <td> <h:inputText value="#{PersonaBean.edad}"/> </td>
+                </tr>
+                <tr>
+                    <td>hierro (mg):</td>
+                    <td> <h:inputText value="#{PersonaBean.edad}"/> </td>
+                </tr>
+                <tr>
+                    <td>fostoro (mg):</td>
+                    <td> <h:inputText value="#{PersonaBean.edad}"/> </td>
+                </tr>
+                <tr>
+                    <td>potacio (mg):</td>
+                    <td> <h:inputText value="#{PersonaBean.edad}"/> </td>
+                </tr>
+                <tr>
+                    <td>Valor Nutricional:</td>
+                    <td> <h:inputText value="#{PersonaBean.edad}"/> </td>
+                </tr>
+                <tr>
+                    <td>tipo Alimento:</td>
+                    <td><h:selectOneMenu value="" >  
+                            <f:selectItem itemLabel="Selecione un alimento" itemValue=""  />  
+                            <f:selectItem itemLabel="Frutas" itemValue="1" />  
+                            <f:selectItem itemLabel="Verduras" itemValue="2" />  
+                        </h:selectOneMenu></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <h:commandButton value="Guardar" action="#{PersonaBean.doGuardar}"/>
+                    </td>
+                </tr>
+            </table>
+
+            <table width="70%" align="center" border="1">
+                <h2 align="center">Listado de alimentos</h2>
+                <tr>
+                    <th>Nombre</th>
+                    <th>sodio</th>
+                    <th>calcio</th>
+                    <th>hierro</th>
+                    <th>fostoro</th>
+                    <th>potacio</th>
+                    <th>valNutricional</th>
+
+                </tr>
+                <!-- CABECALHO  
+            <c:forEach var="per" items="${listapersonas}">
+            <tr>
+            <td><c:out value="${per.nombre}"/></td>
+            <td><c:out value="${per.telefono}"/></td>
+            <td><c:out value="${per.edad}"/></td>
+            </tr>
+            </c:forEach>
+                --> 
+            </table>
+        </h:form>
+
+        <h:form>
+            <table width="70%" align="center" border="0">
+                
+                    <td> <h2>Elija un tipo de alimento </h2>(Obtiene los mejores alimentos de ese tipo mediante Algoritmos Genéticos) </td>
+                    
+                    <tr>
+                    <td> 
+                        <p:selectOneMenu  value="" required="true">  
+                            <f:selectItem itemLabel="Selecione un tipo de Alimento " itemValue=""  />  
+                            <f:selectItem itemLabel="Frutas" itemValue="1" />  
+                            <f:selectItem itemLabel="Verduras" itemValue="2" />  
+                        </p:selectOneMenu>
+                    </td>
+                </tr>
+            </table>
+
+            <table width="70%" align="center" border="1">
+                <tr><h2 align="center">Listado de los mejores alimentos</h2></tr>
+                <tr>
+                    <th>Nombre</th>
+                    <th>sodio</th>
+                    <th>calcio</th>
+                    <th>hierro</th>
+                    <th>fostoro</th>
+                    <th>potacio</th>
+                    <th>valNutricional</th>
+
+                </tr>
+            </table>
+
+        </h:form>
+
+
     </h:body>
 </html>
 
