@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./template/plantilla.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                >
+
+    <ui:define name="content">
+        <h:form title="datos Nutricional">
+            <table width="50%" align="center" border="0">
+                <tr>
+                    <td> <h2>Ingreso de Datos Nutricionales</h2></td>
+                </tr>
+                <tr>
+                    <td>Nombre:</td>
+                    <td> <h:inputText value="#{loadAlimentos.a.name}" /> </td>
+                </tr>
+                <tr>
+                    <td>sodio(mg):</td>
+                    <td> <h:inputText value="#{loadAlimentos.a.sodio}"/> </td>
+                </tr>
+                <tr>
+                    <td>calcio (mg):</td>
+                    <td> <h:inputText value="#{loadAlimentos.a.calcio}"/> </td>
+                </tr>
+                <tr>
+                    <td>hierro (mg):</td>
+                    <td> <h:inputText value="#{loadAlimentos.a.hierro}"/> </td>
+                </tr>
+                <tr>
+                    <td>fostoro (mg):</td>
+                    <td> <h:inputText value="#{loadAlimentos.a.fostoro}"/> </td>
+                </tr>
+                <tr>
+                    <td>potacio (mg):</td>
+                    <td> <h:inputText value="#{loadAlimentos.a.potacio}"/> </td>
+                </tr>
+                <tr>
+                    <td>Valor Nutricional:</td>
+                    <td> <h:inputText value=" " /> </td>
+                </tr>
+                <tr>
+                    <td>tipo Alimento:</td>
+                    <td><p:selectOneMenu value="#{loadAlimentos.a.tipoAlimento}" >  
+                            <f:selectItem itemLabel="Selecione un alimento" itemValue=""  />  
+                            <f:selectItem itemLabel="Frutas" itemValue="frutaa" />  
+                            <f:selectItem itemLabel="Verduras" itemValue="verdura" />  
+                        </p:selectOneMenu></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <h:commandButton value="Guardar" action="#{loadAlimentos.cargarAlimento}"/>
+                    </td>
+                </tr>
+            </table>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

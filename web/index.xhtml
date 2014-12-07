@@ -14,90 +14,31 @@
             <h1>Optimización de Alimento </h1>
             <h2>Algoritmos Genéticos y Redes Bayesianas</h2>
         </center>
-        <h:form title="datos Nutricional">
-            <table width="50%" align="center" border="0">
-                <tr>
-                    <td> <h2>Ingreso de Datos Nutricionales</h2></td>
-                </tr>
-                <tr>
-                    <td>Nombre:</td>
-                    <td> <h:inputText value="#{loadAlimentos.a.name}" /> </td>
-                </tr>
-                <tr>
-                    <td>sodio(mg):</td>
-                    <td> <h:inputText value="#{loadAlimentos.a.sodio}"/> </td>
-                </tr>
-                <tr>
-                    <td>calcio (mg):</td>
-                    <td> <h:inputText value="#{loadAlimentos.a.calcio}"/> </td>
-                </tr>
-                <tr>
-                    <td>hierro (mg):</td>
-                    <td> <h:inputText value="#{loadAlimentos.a.hierro}"/> </td>
-                </tr>
-                <tr>
-                    <td>fostoro (mg):</td>
-                    <td> <h:inputText value="#{loadAlimentos.a.fostoro}"/> </td>
-                </tr>
-                <tr>
-                    <td>potacio (mg):</td>
-                    <td> <h:inputText value="#{loadAlimentos.a.potacio}"/> </td>
-                </tr>
-                <tr>
-                    <td>Valor Nutricional:</td>
-                    <td> <h:inputText value=" " /> </td>
-                </tr>
-                <tr>
-                    <td>tipo Alimento:</td>
-                    <td><h:selectOneMenu value="" >  
-                            <f:selectItem itemLabel="Selecione un alimento" itemValue=""  />  
-                            <f:selectItem itemLabel="Frutas" itemValue="fruta" />  
-                            <f:selectItem itemLabel="Verduras" itemValue="verdura" />  
-                        </h:selectOneMenu></td>
-                </tr>
-                <tr>
-                    <td colspan="2" align="center">
-                        <h:commandButton value="Nuevo" action="#{loadAlimentos.accionNuevo()}" />
-                    </td>
-                    <td colspan="2" align="center">
-                        <h:commandButton value="Guardar" action="#{loadAlimentos.cargarAlimento()}"/>
-                    </td>
-                </tr>
-            </table>
+        <p:dataTable var="u" value="#{loadAlimentos.list1}">
+            <p:column headerText="Nombre">
+                <h:outputText value="#{u.name}" />
+            </p:column>
 
-            <table width="70%" align="center" border="1">
-                <h2 align="center">Listado de alimentos</h2>
-                <tr>
-                    <th>Nombre</th>
-                    <th>sodio</th>
-                    <th>calcio</th>
-                    <th>hierro</th>
-                    <th>fostoro</th>
-                    <th>potacio</th>
-                    <th>valNutricional</th>
+            <p:column headerText="Tipo">
+                <h:outputText value="#{u.tip}" />
+            </p:column>
 
-                </tr>
-                <tr>
-                <h:dataTable var="u" value="#{loadAlimentos.list1}">
-                    <h:column>
-                        <h:outputText value="#{u.name}"></h:outputText>
-                        <f:facet name="header">
-                            <h:outputText value="Nombre"></h:outputText>
-                        </f:facet>                    
-                    </h:column>
-                    <h:column>
-                        <h:outputText value="#{u.sodio}"></h:outputText>
-                        <f:facet name="header">
-                            <h:outputText value="sodio"></h:outputText>
-                        </f:facet>
-                    </h:column>
-                    
-                </h:dataTable>
-                </tr>
+            <p:column headerText="Fosforo">
+                <h:outputText value="#{u.fostoro}" />
+            </p:column>
 
-            </table>
+            <p:column headerText="Hierro">
+                <h:outputText value="#{u.hierro}" />
+            </p:column>
+            <p:column headerText="Potacio">
+                <h:outputText value="#{u.potacio}" />
+            </p:column>
+        </p:dataTable>
+
+        <h:form>
+            <p:commandLink value="Nuevo" action="#{loadAlimentos.accionNuevo()}" />
         </h:form>
-
+        
         <h:form>
             <table width="70%" align="center" border="0">
 
