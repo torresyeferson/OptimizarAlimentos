@@ -39,12 +39,12 @@ import org.openmarkov.io.probmodel.PGMXReader;
  */
 public class LeerRed {
 
-    final private String nombrered = "ejemplo.pgmx";
+    final private String nombrered = "frutass.pgmx";
     final public static List<String> s = new ArrayList<String>();
 
     public void LeerArchivo() throws FileNotFoundException, ParserException, NonProjectablePotentialException, WrongCriterionException, ProbNodeNotFoundException, NotEvaluableNetworkException, IncompatibleEvidenceException, UnexpectedInferenceException, InvalidStateException {
         //abrir archivo
-        InputStream file = new FileInputStream(new File(System.getProperty("user.dir") + "/src/archivo/"+nombrered));
+        InputStream file = new FileInputStream(new File(System.getProperty("user.dir") + "/src/java/archivo/"+nombrered));
         //cargar la red
         PGMXReader reader = new PGMXReader();
         ProbNet prob = reader.loadProbNet(file, nombrered).getProbNet();
@@ -68,7 +68,7 @@ public class LeerRed {
 
         try {
             //se introduce la presencia del estado y si pasa o no
-            evidence.addFinding(prob, "Sintomas", "ausente");
+            evidence.addFinding(prob, "desayuno", "presente");
             System.out.println("........................--------");
             //evidence.addFinding(prob, "Enfermedad", "presente");
         } catch (InvalidStateException ex) {
@@ -78,16 +78,16 @@ public class LeerRed {
         }
         InferenceAlgorithm variableElimination = new VariableElimination(prob);
         variableElimination.setPreResolutionEvidence(evidence);
-        Variable estado = prob.getVariable("Enfermedad");
-        Variable estado1 = prob.getVariable("Sintomas");
+        Variable estado = prob.getVariable("desayuno");
+        //Variable estado1 = prob.getVariable("Sintomas");
         ArrayList<Variable> variablesOfInterest = new ArrayList<Variable>();
+        //variablesOfInterest.add(estado);
         variablesOfInterest.add(estado);
-        variablesOfInterest.add(estado1);
         // Calcular las probabilidades posteriores
         HashMap<Variable, TablePotential> posteriorProbabilities = variableElimination.getProbsAndUtilities();
         printResults(evidence, variablesOfInterest, posteriorProbabilities);
-        evidence.addFinding(prob, "Enfermedad", "presente");
-        printResults(evidence, variablesOfInterest, posteriorProbabilities);
+//        evidence.addFinding(prob, "Enfermedad", "presente");
+//        printResults(evidence, variablesOfInterest, posteriorProbabilities);
     }
 
     public void printResults(EvidenceCase evidence, ArrayList<Variable> variablesOfInterest,
@@ -118,6 +118,30 @@ public class LeerRed {
                         + variable.getName() + "\".");
                 e.printStackTrace();
             }
+        }
+    }
+    public static void main(String[] args) {
+        LeerRed l= new LeerRed();
+        try {
+            l.LeerArchivo();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(LeerRed.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParserException ex) {
+            Logger.getLogger(LeerRed.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NonProjectablePotentialException ex) {
+            Logger.getLogger(LeerRed.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (WrongCriterionException ex) {
+            Logger.getLogger(LeerRed.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ProbNodeNotFoundException ex) {
+            Logger.getLogger(LeerRed.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NotEvaluableNetworkException ex) {
+            Logger.getLogger(LeerRed.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IncompatibleEvidenceException ex) {
+            Logger.getLogger(LeerRed.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnexpectedInferenceException ex) {
+            Logger.getLogger(LeerRed.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InvalidStateException ex) {
+            Logger.getLogger(LeerRed.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }
