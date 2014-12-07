@@ -3,17 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package AlgoritmoGenetico;
 
+import java.io.Serializable;
 import java.util.List;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 
 /**
  *
  * @author silvy
  */
-public class Alimentos {
-   private String name;
+@ManagedBean
+@ViewScoped
+public class Alimentos implements Serializable {
+
+    private String name;
+    private String name1;
     private double sodio;
     private double calcio;
     private double hierro;
@@ -21,6 +27,9 @@ public class Alimentos {
     private double potacio;
     private double valNutricional;
     private List tipoAlimento;
+   
+    public Alimentos() {
+    }
 
     public Alimentos(String name, double sodio, double calcio, double hierro, double fostoro, double potacio, double valNutricional, List tipoAlimento) {
         this.name = name;
@@ -33,7 +42,14 @@ public class Alimentos {
         this.tipoAlimento = tipoAlimento;
     }
 
-    
+    public String getName1() {
+        return name1;
+    }
+
+    public void setName1(String name1) {
+        this.name1 = name1;
+    }
+   
     public String getName() {
         return name;
     }
@@ -94,18 +110,24 @@ public class Alimentos {
         return tipoAlimento;
     }
 
-    public void setTipoAlimento(List tipoAlimento) {
-        this.tipoAlimento = tipoAlimento;
+//    public void setTipoAlimento(List tipoAlimento) {
+//    
+//        this.tipoAlimento = tipoAlimento;
+//    }
+    public void setTipoAlimento(String tipoAlimento) {
+        this.tipoAlimento.add(tipoAlimento);
     }
-
-
 
     @Override
     public String toString() {
         return "Alimento [Nombre=" + name + ", sodio (mg)=" + sodio
-                + ", calcio=" + calcio + ", hierro=" + hierro 
+                + ", calcio=" + calcio + ", hierro=" + hierro
                 + ", fostoro=" + fostoro + ", potacio=" + potacio
-                + ", Valor Nutricional=" + valNutricional 
+                + ", Valor Nutricional=" + valNutricional
                 + "]";
+    }
+    public void presenta(){
+        this.name1=this.name;
+    
     }
 }

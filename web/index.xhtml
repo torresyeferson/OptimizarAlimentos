@@ -4,9 +4,10 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
-        <title>Facelet Title</title>
+        <title>OptimosAlimentos</title>
     </h:head>
     <h:body>
         <center>
@@ -20,43 +21,46 @@
                 </tr>
                 <tr>
                     <td>Nombre:</td>
-                    <td> <h:inputText value="#{PersonaBean.nombre}"/> </td>
+                    <td> <h:inputText value="#{loadAlimentos.a.name}" /> </td>
                 </tr>
                 <tr>
                     <td>sodio(mg):</td>
-                    <td> <h:inputText value="#{PersonaBean.telefono}"/> </td>
+                    <td> <h:inputText value="#{loadAlimentos.a.sodio}"/> </td>
                 </tr>
                 <tr>
                     <td>calcio (mg):</td>
-                    <td> <h:inputText value="#{PersonaBean.edad}"/> </td>
+                    <td> <h:inputText value="#{loadAlimentos.a.calcio}"/> </td>
                 </tr>
                 <tr>
                     <td>hierro (mg):</td>
-                    <td> <h:inputText value="#{PersonaBean.edad}"/> </td>
+                    <td> <h:inputText value="#{loadAlimentos.a.hierro}"/> </td>
                 </tr>
                 <tr>
                     <td>fostoro (mg):</td>
-                    <td> <h:inputText value="#{PersonaBean.edad}"/> </td>
+                    <td> <h:inputText value="#{loadAlimentos.a.fostoro}"/> </td>
                 </tr>
                 <tr>
                     <td>potacio (mg):</td>
-                    <td> <h:inputText value="#{PersonaBean.edad}"/> </td>
+                    <td> <h:inputText value="#{loadAlimentos.a.potacio}"/> </td>
                 </tr>
                 <tr>
                     <td>Valor Nutricional:</td>
-                    <td> <h:inputText value="#{PersonaBean.edad}"/> </td>
+                    <td> <h:inputText value=" " /> </td>
                 </tr>
                 <tr>
                     <td>tipo Alimento:</td>
                     <td><h:selectOneMenu value="" >  
                             <f:selectItem itemLabel="Selecione un alimento" itemValue=""  />  
-                            <f:selectItem itemLabel="Frutas" itemValue="1" />  
-                            <f:selectItem itemLabel="Verduras" itemValue="2" />  
+                            <f:selectItem itemLabel="Frutas" itemValue="fruta" />  
+                            <f:selectItem itemLabel="Verduras" itemValue="verdura" />  
                         </h:selectOneMenu></td>
                 </tr>
                 <tr>
                     <td colspan="2" align="center">
-                        <h:commandButton value="Guardar" action="#{PersonaBean.doGuardar}"/>
+                        <h:commandButton value="Nuevo" action="#{loadAlimentos.accionNuevo()}" />
+                    </td>
+                    <td colspan="2" align="center">
+                        <h:commandButton value="Guardar" action="#{loadAlimentos.cargarAlimento()}"/>
                     </td>
                 </tr>
             </table>
@@ -73,30 +77,44 @@
                     <th>valNutricional</th>
 
                 </tr>
-                <!-- CABECALHO  
-            <c:forEach var="per" items="${listapersonas}">
-            <tr>
-            <td><c:out value="${per.nombre}"/></td>
-            <td><c:out value="${per.telefono}"/></td>
-            <td><c:out value="${per.edad}"/></td>
-            </tr>
-            </c:forEach>
-                --> 
+                <tr>
+                <h:dataTable var="u" value="#{loadAlimentos.list1}">
+                    <h:column>
+                        <h:outputText value="#{u.name}"></h:outputText>
+                        <f:facet name="header">
+                            <h:outputText value="Nombre"></h:outputText>
+                        </f:facet>                    
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{u.sodio}"></h:outputText>
+                        <f:facet name="header">
+                            <h:outputText value="sodio"></h:outputText>
+                        </f:facet>
+                    </h:column>
+                    
+                </h:dataTable>
+                </tr>
+
             </table>
         </h:form>
 
         <h:form>
             <table width="70%" align="center" border="0">
-                
-                    <td> <h2>Elija un tipo de alimento </h2>(Obtiene los mejores alimentos de ese tipo mediante Algoritmos Genéticos) </td>
-                    
-                    <tr>
+
+                <td> <h2>Elija un tipo de alimento </h2> </td>
+
+                <tr>
                     <td> 
                         <p:selectOneMenu  value="" required="true">  
                             <f:selectItem itemLabel="Selecione un tipo de Alimento " itemValue=""  />  
                             <f:selectItem itemLabel="Frutas" itemValue="1" />  
                             <f:selectItem itemLabel="Verduras" itemValue="2" />  
                         </p:selectOneMenu>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="left" width="25">
+                        <p:commandButton value=" Obtener" action="#{PersonaBean.doGuardar}"/>
                     </td>
                 </tr>
             </table>
