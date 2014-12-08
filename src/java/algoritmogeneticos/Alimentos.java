@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package AlgoritmoGenetico;
+package algoritmogeneticos;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -27,10 +28,21 @@ public class Alimentos implements Serializable {
     private double potacio;
     private double valNutricional;
     private List tipoAlimento;
+    private String tip;
+    
    
     public Alimentos() {
     }
 
+    public String getTip() {
+        return tip;
+    }
+
+    public void setTip(String tip) {
+        this.tip = tip;
+    }
+
+     
     public Alimentos(String name, double sodio, double calcio, double hierro, double fostoro, double potacio, double valNutricional, List tipoAlimento) {
         this.name = name;
         this.sodio = sodio;
@@ -110,13 +122,13 @@ public class Alimentos implements Serializable {
         return tipoAlimento;
     }
 
-//    public void setTipoAlimento(List tipoAlimento) {
-//    
-//        this.tipoAlimento = tipoAlimento;
-//    }
-    public void setTipoAlimento(String tipoAlimento) {
-        this.tipoAlimento.add(tipoAlimento);
+    public void setTipoAlimento(List tipoAlimento) {
+    
+        this.tipoAlimento = tipoAlimento;
     }
+//    public void setTipoAlimento(String tipoAlimentos) {
+//        tipoAlimento.add(tipoAlimento);
+//    }
 
     @Override
     public String toString() {

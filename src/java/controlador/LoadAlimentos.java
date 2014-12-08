@@ -5,18 +5,25 @@
  */
 package controlador;
 
-import AlgoritmoGenetico.Alimentos;
-import AlgoritmoGenetico.TestAlimentosFitness;
+import algoritmogeneticos.Alimentos;
+import algoritmogeneticos.TestAlimentosFitness;
+import java.io.FileNotFoundException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import org.openmarkov.core.exception.IncompatibleEvidenceException;
+import org.openmarkov.core.exception.InvalidStateException;
+import org.openmarkov.core.exception.NonProjectablePotentialException;
+import org.openmarkov.core.exception.NotEvaluableNetworkException;
+import org.openmarkov.core.exception.ParserException;
+import org.openmarkov.core.exception.ProbNodeNotFoundException;
+import org.openmarkov.core.exception.UnexpectedInferenceException;
+import org.openmarkov.core.exception.WrongCriterionException;
+import redbaseyiana.LeerRed;
 
-/**
- *
- * @author silvy
- */
 @ManagedBean
 public class LoadAlimentos implements Serializable {
 
@@ -24,6 +31,7 @@ public class LoadAlimentos implements Serializable {
     private Alimentos a;
     private String tipo;
     private String resultadoAlgoritmo;
+    private String resultadoBayes;
 
     public LoadAlimentos() {
         List tipoAlimRe1 = new ArrayList();
@@ -80,7 +88,7 @@ public class LoadAlimentos implements Serializable {
     public void llamarRed() throws Exception {
         TestAlimentosFitness test = new TestAlimentosFitness();
         test.initialize(tipo);
-        resultadoAlgoritmo=test.testSelectFittestMovies();
+        resultadoAlgoritmo = test.testSelectFittestMovies();
     }
 
     public String cargarAlimento() {
@@ -96,6 +104,43 @@ public class LoadAlimentos implements Serializable {
     public void setResultadoAlgoritmo(String resultadoAlgoritmo) {
         this.resultadoAlgoritmo = resultadoAlgoritmo;
     }
-    
+
+    public void llamarBayes() {
+        LeerRed l = new LeerRed();
+        try {
+            if (tipo == "verdura") {
+                resultadoBayes=l.LeerArchivo("verduras.pgmx","Col");
+            } else {
+                System.out.println(l.LeerArchivo("frutas.pgmx","Arandanos"));
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(LoadAlimentos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParserException ex) {
+            Logger.getLogger(LoadAlimentos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NonProjectablePotentialException ex) {
+            Logger.getLogger(LoadAlimentos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (WrongCriterionException ex) {
+            Logger.getLogger(LoadAlimentos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ProbNodeNotFoundException ex) {
+            Logger.getLogger(LoadAlimentos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NotEvaluableNetworkException ex) {
+            Logger.getLogger(LoadAlimentos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IncompatibleEvidenceException ex) {
+            Logger.getLogger(LoadAlimentos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnexpectedInferenceException ex) {
+            Logger.getLogger(LoadAlimentos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InvalidStateException ex) {
+            Logger.getLogger(LoadAlimentos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    public String getResultadoBayes() {
+        return resultadoBayes;
+    }
+
+    public void setResultadoBayes(String resultadoBayes) {
+        this.resultadoBayes = resultadoBayes;
+    }
 
 }

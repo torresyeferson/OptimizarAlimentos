@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package AlgoritmoGenetico;
+package algoritmogeneticos;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -90,7 +90,7 @@ public class TestAlimentosFitness {
 
     }
 
-    public void testSelectFittestMovies() throws Exception {
+    public String testSelectFittestMovies() throws Exception {
 
         alimento = this.loadAlimento();
 
@@ -107,16 +107,16 @@ public class TestAlimentosFitness {
 
             }
         }
-        printSolution(bestSolutionSoFar, alimento);
+        return printSolution(bestSolutionSoFar, alimento);
     }
 
-    public void printSolution(IChromosome solution, List aliment) {
-        System.out.println("Valor del Fitness: " + solution.getFitnessValue());
-        System.out.println("####################################################################");
+    public String printSolution(IChromosome solution, List aliment) {
+        String resultado="";
         for (int i = 0; i < solution.size(); i++) {
             int index = (Integer) solution.getGene(i).getAllele();
             Alimentos alimento = (Alimentos) aliment.get(index);
-            System.out.println(alimento.toString());
+            resultado=resultado+alimento.toString()+"\n";
         }
+        return resultado;
     }
 }

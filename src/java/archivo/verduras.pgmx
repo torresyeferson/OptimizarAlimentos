@@ -3,7 +3,7 @@
   <ProbNet type="BayesianNetwork">
     <Comment showWhenOpeningNetwork="false"><![CDATA[<<Pulse dos veces para incluir/modificar comentario>>]]></Comment>
     <Variables>
-      <Variable name="Kiwi" type="finiteStates" role="chance" isInput="false">
+      <Variable name="Brocoli" type="finiteStates" role="chance" isInput="false">
         <Coordinates x="188" y="180" />
         <Unit />
         <Precision>0.01</Precision>
@@ -93,7 +93,7 @@
           <State name="presente" />
         </States>
       </Variable>
-      <Variable name="Cerezas" type="finiteStates" role="chance" isInput="false">
+      <Variable name="Acelga" type="finiteStates" role="chance" isInput="false">
         <Coordinates x="548" y="177" />
         <Unit />
         <Precision>0.01</Precision>
@@ -147,7 +147,7 @@
           <State name="presente" />
         </States>
       </Variable>
-      <Variable name="Fruta3" type="finiteStates" role="chance" isInput="false">
+      <Variable name="Col" type="finiteStates" role="chance" isInput="false">
         <Coordinates x="884" y="183" />
         <Unit />
         <Precision>0.01</Precision>
@@ -167,6 +167,9 @@
       </Variable>
       <Variable name="desayuno" type="finiteStates" role="chance" isInput="false">
         <Coordinates x="484" y="305" />
+        <AdditionalProperties>
+          <Property name="Relevance" value="7.0" />
+        </AdditionalProperties>
         <Unit />
         <Precision>0.01</Precision>
         <States>
@@ -177,82 +180,82 @@
     </Variables>
     <Links>
       <Link directed="true">
-        <Variable name="Kiwi" />
+        <Variable name="Brocoli" />
         <Variable name="desayuno" />
       </Link>
       <Link directed="true">
         <Variable name="Fosforo" />
-        <Variable name="Kiwi" />
+        <Variable name="Brocoli" />
       </Link>
       <Link directed="true">
         <Variable name="Calcio" />
-        <Variable name="Kiwi" />
+        <Variable name="Brocoli" />
       </Link>
       <Link directed="true">
         <Variable name="Sodio" />
-        <Variable name="Kiwi" />
+        <Variable name="Brocoli" />
       </Link>
       <Link directed="true">
         <Variable name="Hierro" />
-        <Variable name="Kiwi" />
+        <Variable name="Brocoli" />
       </Link>
       <Link directed="true">
         <Variable name="Potasio" />
-        <Variable name="Kiwi" />
+        <Variable name="Brocoli" />
       </Link>
       <Link directed="true">
         <Variable name="Hierro1" />
-        <Variable name="Cerezas" />
+        <Variable name="Acelga" />
       </Link>
       <Link directed="true">
         <Variable name="Potasio1" />
-        <Variable name="Cerezas" />
+        <Variable name="Acelga" />
       </Link>
       <Link directed="true">
         <Variable name="Sodio1" />
-        <Variable name="Cerezas" />
+        <Variable name="Acelga" />
       </Link>
       <Link directed="true">
         <Variable name="Fosforo1" />
-        <Variable name="Cerezas" />
+        <Variable name="Acelga" />
       </Link>
       <Link directed="true">
-        <Variable name="Cerezas" />
+        <Variable name="Acelga" />
         <Variable name="desayuno" />
       </Link>
       <Link directed="true">
         <Variable name="Calcio1" />
-        <Variable name="Cerezas" />
+        <Variable name="Acelga" />
       </Link>
       <Link directed="true">
         <Variable name="Hierro2" />
-        <Variable name="Fruta3" />
+        <Variable name="Col" />
       </Link>
       <Link directed="true">
         <Variable name="Potasio2" />
-        <Variable name="Fruta3" />
+        <Variable name="Col" />
       </Link>
       <Link directed="true">
         <Variable name="Sodio2" />
-        <Variable name="Fruta3" />
+        <Variable name="Col" />
       </Link>
       <Link directed="true">
         <Variable name="Fosforo2" />
-        <Variable name="Fruta3" />
+        <Variable name="Col" />
       </Link>
       <Link directed="true">
-        <Variable name="Fruta3" />
+        <Variable name="Col" />
         <Variable name="desayuno" />
       </Link>
       <Link directed="true">
         <Variable name="Calcio2" />
-        <Variable name="Fruta3" />
+        <Variable name="Col" />
       </Link>
     </Links>
     <Potentials>
       <Potential type="Table" role="conditionalProbability">
         <Variables>
-          <Variable name="Kiwi" />
+          <Variable name="Brocoli" />
           <Variable name="Potasio" />
           <Variable name="Calcio" />
           <Variable name="Fosforo" />
@@ -313,7 +316,7 @@
       </Potential>
       <Potential type="Table" role="conditionalProbability">
         <Variables>
-          <Variable name="Cerezas" />
+          <Variable name="Acelga" />
           <Variable name="Potasio1" />
           <Variable name="Calcio1" />
           <Variable name="Fosforo1" />
@@ -349,7 +352,7 @@
       </Potential>
       <Potential type="Table" role="conditionalProbability">
         <Variables>
-          <Variable name="Fruta3" />
+          <Variable name="Col" />
           <Variable name="Potasio2" />
           <Variable name="Calcio2" />
           <Variable name="Fosforo2" />
@@ -366,9 +369,9 @@
       <Potential type="Table" role="conditionalProbability">
         <Variables>
           <Variable name="desayuno" />
-          <Variable name="Kiwi" />
-          <Variable name="Cerezas" />
-          <Variable name="Fruta3" />
+          <Variable name="Brocoli" />
+          <Variable name="Acelga" />
+          <Variable name="Col" />
         </Variables>
         <Values>0.99 0.01 0.67 0.33 0.67 0.33 0.34 0.66 0.67 0.33 0.34 0.66 0.34 0.66 0.01 0.99</Values>
       </Potential>

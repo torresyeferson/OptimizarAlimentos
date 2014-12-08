@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -37,39 +38,20 @@ import org.openmarkov.io.probmodel.PGMXReader;
  *
  * @author Yeferson
  */
-public class LeerRed {
+public class LeerRed implements Serializable{
 
-    final private String nombrered = "frutass.pgmx";
     final public static List<String> s = new ArrayList<String>();
-
-    public void LeerArchivo() throws FileNotFoundException, ParserException, NonProjectablePotentialException, WrongCriterionException, ProbNodeNotFoundException, NotEvaluableNetworkException, IncompatibleEvidenceException, UnexpectedInferenceException, InvalidStateException {
-        //abrir archivo
-        InputStream file = new FileInputStream(new File(System.getProperty("user.dir") + "/src/java/archivo/"+nombrered));
-        //cargar la red
+    final private String bayesNetworkName = "frutas.pgmx";
+    public String LeerArchivo(String nombrered, String parametro) throws FileNotFoundException, ParserException, NonProjectablePotentialException, WrongCriterionException, ProbNodeNotFoundException, NotEvaluableNetworkException, IncompatibleEvidenceException, UnexpectedInferenceException, InvalidStateException {
+       
+        //InputStream file = new FileInputStream(new File(System.getProperty("user.dir") + "/src/java/archivo/" + nombrered));
+        InputStream file = new FileInputStream(new File("E:\\DOC\\NetBeansProjects\\RedesBayesianasAlgoritmosGeneticos\\src\\java\\archivo\\" + nombrered));
         PGMXReader reader = new PGMXReader();
-        ProbNet prob = reader.loadProbNet(file, nombrered).getProbNet();
-        System.out.println("Numero de nodos= " + prob.getNumNodes());
-        List<ProbNode> listPro = prob.getProbNodes();
-        for (int i = 0; i < listPro.size(); i++) {
-            System.out.println("o---- " + listPro.size());
-            ProbNode probNode = listPro.get(i);
-            //obtenemos el nombre de cada nodo
-            System.out.println("1---- " + probNode.getUtilityFunction());
-            System.out.println("1---- " + probNode.getName());
-            System.out.println("2---- " + probNode.getProbNet());
-            System.out.println("3---- " + probNode.getRelevance());
-            System.out.println("4---- " + probNode.getNodeType().toString());
-            System.out.println("6---- " + probNode.getNode().toString());
-            System.out.println("7---- " + probNode.getUtilityParents());
-            System.out.println("8---- " + probNode.getPolicyType().name());
-
-        }
+        ProbNet prob = reader.loadProbNet(file,"").getProbNet();
         EvidenceCase evidence = new EvidenceCase();
-
         try {
             //se introduce la presencia del estado y si pasa o no
-            evidence.addFinding(prob, "desayuno", "presente");
-            System.out.println("........................--------");
+            evidence.addFinding(prob, parametro, "presente");
             //evidence.addFinding(prob, "Enfermedad", "presente");
         } catch (InvalidStateException ex) {
             Logger.getLogger(LeerRed.class.getName()).log(Level.SEVERE, null, ex);
@@ -79,51 +61,47 @@ public class LeerRed {
         InferenceAlgorithm variableElimination = new VariableElimination(prob);
         variableElimination.setPreResolutionEvidence(evidence);
         Variable estado = prob.getVariable("desayuno");
-        //Variable estado1 = prob.getVariable("Sintomas");
         ArrayList<Variable> variablesOfInterest = new ArrayList<Variable>();
-        //variablesOfInterest.add(estado);
         variablesOfInterest.add(estado);
-        // Calcular las probabilidades posteriores
         HashMap<Variable, TablePotential> posteriorProbabilities = variableElimination.getProbsAndUtilities();
-        printResults(evidence, variablesOfInterest, posteriorProbabilities);
-//        evidence.addFinding(prob, "Enfermedad", "presente");
-//        printResults(evidence, variablesOfInterest, posteriorProbabilities);
+        return printResults(evidence, variablesOfInterest, posteriorProbabilities);
+
     }
 
-    public void printResults(EvidenceCase evidence, ArrayList<Variable> variablesOfInterest,
+    public String printResults(EvidenceCase evidence, ArrayList<Variable> variablesOfInterest,
             HashMap<Variable, TablePotential> posteriorProbabilities) {
-        // Print the findings
-        System.out.println("Evidencia:");
+        String resultados = "";
         for (Finding finding : evidence.getFindings()) {
-            System.out.print("1:  " + finding.getVariable() + ": ");
+            resultados += "1:  " + finding.getVariable() + ": ";
             s.add(String.valueOf(finding.getVariable()));
             s.add(finding.getState());
-            System.out.println(finding.getState());
+            resultados += finding.getState();
         }
-        // Imprimir la probabilidad posterior del estado "pasa" de cada variable de interés
-        System.out.println("Probabilidade posteriores: ");
         for (Variable variable : variablesOfInterest) {
             double value;
             TablePotential posteriorProbabilitiesPotential = posteriorProbabilities.get(variable);
-            System.out.print(" 2:  " + variable + ": ");
+            resultados += " 2:  " + variable + ": ";
             int stateIndex = -1;
             try {
                 stateIndex = variable.getStateIndex("presente");
                 value = posteriorProbabilitiesPotential.values[stateIndex];
                 s.add(String.valueOf(Util.roundedString(value, "0.00001")));
                 // s.add(sss);
-                System.out.println(Util.roundedString(value, "0.0001"));
+                resultados += Util.roundedString(value, "0.0001");
             } catch (InvalidStateException e) {
                 System.err.println("State \"present\" not found for variable \""
                         + variable.getName() + "\".");
                 e.printStackTrace();
             }
         }
+        return resultados;
     }
+
     public static void main(String[] args) {
-        LeerRed l= new LeerRed();
+        LeerRed l = new LeerRed();
         try {
-            l.LeerArchivo();
+            System.out.println("*****");
+            System.out.println(l.LeerArchivo("frutas.pgmx", "Arandanos"));
         } catch (FileNotFoundException ex) {
             Logger.getLogger(LeerRed.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ParserException ex) {

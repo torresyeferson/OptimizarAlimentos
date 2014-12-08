@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProbModelXML formatVersion="0.2.0">
+  <ProbNet type="BayesianNetwork">
+    <Comment showWhenOpeningNetwork="false"><![CDATA[<<Pulse dos veces para incluir/modificar comentario>>]]></Comment>
+    <Variables>
+      <Variable name="Arandanos" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="188" y="180" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="ausente" />
+          <State name="presente" />
+        </States>
+      </Variable>
+      <Variable name="Fosforo" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="233" y="73" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="ausente" />
+          <State name="presente" />
+        </States>
+      </Variable>
+      <Variable name="Calcio" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="72" y="101" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="ausente" />
+          <State name="presente" />
+        </States>
+      </Variable>
+      <Variable name="Sodio" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="81" y="54" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="ausente" />
+          <State name="presente" />
+        </States>
+      </Variable>
+      <Variable name="Hierro" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="162" y="40" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="ausente" />
+          <State name="presente" />
+        </States>
+      </Variable>
+      <Variable name="Potasio" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="310" y="104" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="ausente" />
+          <State name="presente" />
+        </States>
+      </Variable>
+      <Variable name="Hierro1" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="527" y="50" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="ausente" />
+          <State name="presente" />
+        </States>
+      </Variable>
+      <Variable name="Potasio1" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="678" y="67" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="ausente" />
+          <State name="presente" />
+        </States>
+      </Variable>
+      <Variable name="Sodio1" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="439" y="57" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="ausente" />
+          <State name="presente" />
+        </States>
+      </Variable>
+      <Variable name="Fosforo1" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="586" y="93" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="ausente" />
+          <State name="presente" />
+        </States>
+      </Variable>
+      <Variable name="Frutilla" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="548" y="177" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="ausente" />
+          <State name="presente" />
+        </States>
+      </Variable>
+      <Variable name="Calcio1" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="430" y="113" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="ausente" />
+          <State name="presente" />
+        </States>
+      </Variable>
+      <Variable name="Hierro2" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="856" y="59" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="ausente" />
+          <State name="presente" />
+        </States>
+      </Variable>
+      <Variable name="Potasio2" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="1014" y="74" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="ausente" />
+          <State name="presente" />
+        </States>
+      </Variable>
+      <Variable name="Sodio2" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="766" y="62" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="ausente" />
+          <State name="presente" />
+        </States>
+      </Variable>
+      <Variable name="Fosforo2" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="922" y="100" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="ausente" />
+          <State name="presente" />
+        </States>
+      </Variable>
+      <Variable name="Cerezas" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="884" y="183" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="ausente" />
+          <State name="presente" />
+        </States>
+      </Variable>
+      <Variable name="Calcio2" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="766" y="120" />
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="ausente" />
+          <State name="presente" />
+        </States>
+      </Variable>
+      <Variable name="desayuno" type="finiteStates" role="chance" isInput="false">
+        <Coordinates x="484" y="305" />
+        <AdditionalProperties>
+          <Property name="Relevance" value="7.0" />
+        </AdditionalProperties>
+        <Unit />
+        <Precision>0.01</Precision>
+        <States>
+          <State name="ausente" />
+          <State name="presente" />
+        </States>
+      </Variable>
+    </Variables>
+    <Links>
+      <Link directed="true">
+        <Variable name="Arandanos" />
+        <Variable name="desayuno" />
+      </Link>
+      <Link directed="true">
+        <Variable name="Fosforo" />
+        <Variable name="Arandanos" />
+      </Link>
+      <Link directed="true">
+        <Variable name="Calcio" />
+        <Variable name="Arandanos" />
+      </Link>
+      <Link directed="true">
+        <Variable name="Sodio" />
+        <Variable name="Arandanos" />
+      </Link>
+      <Link directed="true">
+        <Variable name="Hierro" />
+        <Variable name="Arandanos" />
+      </Link>
+      <Link directed="true">
+        <Variable name="Potasio" />
+        <Variable name="Arandanos" />
+      </Link>
+      <Link directed="true">
+        <Variable name="Hierro1" />
+        <Variable name="Frutilla" />
+      </Link>
+      <Link directed="true">
+        <Variable name="Potasio1" />
+        <Variable name="Frutilla" />
+      </Link>
+      <Link directed="true">
+        <Variable name="Sodio1" />
+        <Variable name="Frutilla" />
+      </Link>
+      <Link directed="true">
+        <Variable name="Fosforo1" />
+        <Variable name="Frutilla" />
+      </Link>
+      <Link directed="true">
+        <Variable name="Frutilla" />
+        <Variable name="desayuno" />
+      </Link>
+      <Link directed="true">
+        <Variable name="Calcio1" />
+        <Variable name="Frutilla" />
+      </Link>
+      <Link directed="true">
+        <Variable name="Hierro2" />
+        <Variable name="Cerezas" />
+      </Link>
+      <Link directed="true">
+        <Variable name="Potasio2" />
+        <Variable name="Cerezas" />
+      </Link>
+      <Link directed="true">
+        <Variable name="Sodio2" />
+        <Variable name="Cerezas" />
+      </Link>
+      <Link directed="true">
+        <Variable name="Fosforo2" />
+        <Variable name="Cerezas" />
+      </Link>
+      <Link directed="true">
+        <Variable name="Cerezas" />
+        <Variable name="desayuno" />
+      </Link>
+      <Link directed="true">
+        <Variable name="Calcio2" />
+        <Variable name="Cerezas" />
+      </Link>
+    </Links>
+    <Potentials>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Arandanos" />
+          <Variable name="Potasio" />
+          <Variable name="Calcio" />
+          <Variable name="Fosforo" />
+          <Variable name="Sodio" />
+          <Variable name="Hierro" />
+        </Variables>
+        <Values>0.9 0.1 0.8 0.2 0.8 0.2 0.8 0.2 0.8 0.2 0.8 0.2 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.6 0.4 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.4 0.6 0.4 0.6 0.2 0.8 0.2 0.8 0.2 0.8 0.2 0.8 0.2 0.8 0.1 0.9</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Fosforo" />
+        </Variables>
+        <Values>0.3 0.7</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Calcio" />
+        </Variables>
+        <Values>0.5 0.5</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Sodio" />
+        </Variables>
+        <Values>0.3 0.7</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Hierro" />
+        </Variables>
+        <Values>0.1 0.9</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Potasio" />
+        </Variables>
+        <Values>0.8 0.2</Values>
+      </Potential>
+      <Potential type="Uniform" role="conditionalProbability">
+        <Variables>
+          <Variable name="Hierro1" />
+        </Variables>
+      </Potential>
+      <Potential type="Uniform" role="conditionalProbability">
+        <Variables>
+          <Variable name="Potasio1" />
+        </Variables>
+      </Potential>
+      <Potential type="Uniform" role="conditionalProbability">
+        <Variables>
+          <Variable name="Sodio1" />
+        </Variables>
+      </Potential>
+      <Potential type="Uniform" role="conditionalProbability">
+        <Variables>
+          <Variable name="Fosforo1" />
+        </Variables>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Frutilla" />
+          <Variable name="Potasio1" />
+          <Variable name="Calcio1" />
+          <Variable name="Fosforo1" />
+          <Variable name="Sodio1" />
+          <Variable name="Hierro1" />
+        </Variables>
+        <Values>0.9 0.1 0.8 0.2 0.8 0.2 0.6 0.4 0.8 0.2 0.8 0.2 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.4 0.6 0.5 0.5 0.4 0.6 0.5 0.5 0.2 0.8 0.8 0.2 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.4 0.6 0.5 0.5 0.6 0.4 0.4 0.6 0.4 0.6 0.2 0.8 0.4 0.6 0.2 0.8 0.2 0.8 0.1 0.9</Values>
+      </Potential>
+      <Potential type="Uniform" role="conditionalProbability">
+        <Variables>
+          <Variable name="Calcio1" />
+        </Variables>
+      </Potential>
+      <Potential type="Uniform" role="conditionalProbability">
+        <Variables>
+          <Variable name="Hierro2" />
+        </Variables>
+      </Potential>
+      <Potential type="Uniform" role="conditionalProbability">
+        <Variables>
+          <Variable name="Potasio2" />
+        </Variables>
+      </Potential>
+      <Potential type="Uniform" role="conditionalProbability">
+        <Variables>
+          <Variable name="Sodio2" />
+        </Variables>
+      </Potential>
+      <Potential type="Uniform" role="conditionalProbability">
+        <Variables>
+          <Variable name="Fosforo2" />
+        </Variables>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="Cerezas" />
+          <Variable name="Potasio2" />
+          <Variable name="Calcio2" />
+          <Variable name="Fosforo2" />
+          <Variable name="Sodio2" />
+          <Variable name="Hierro2" />
+        </Variables>
+        <Values>0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.4 0.6 0.2 0.8 0.5 0.5 0.4 0.6 0.4 0.6 0.2 0.8 0.2 0.8 0.2 0.8 0.2 0.8 0.1 0.9</Values>
+      </Potential>
+      <Potential type="Uniform" role="conditionalProbability">
+        <Variables>
+          <Variable name="Calcio2" />
+        </Variables>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="desayuno" />
+          <Variable name="Arandanos" />
+          <Variable name="Frutilla" />
+          <Variable name="Cerezas" />
+        </Variables>
+        <Values>0.99 0.01 0.67 0.33 0.67 0.33 0.34 0.66 0.67 0.33 0.34 0.66 0.34 0.66 0.01 0.99</Values>
+      </Potential>
+    </Potentials>
+    <AdditionalProperties />
+  </ProbNet>
+</ProbModelXML>

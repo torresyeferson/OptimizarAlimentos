@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package AlgoritmoGenetico;
+package algoritmogeneticos;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,7 +18,7 @@ public class ejemploAG {
        try {
             TestAlimentosFitness test = new TestAlimentosFitness();
             test.initialize("fruta");
-            test.testSelectFittestMovies();
+            System.out.println(test.testSelectFittestMovies());
         } catch (Exception ex) {
             Logger.getLogger(ejemploAG.class.getName()).log(Level.SEVERE, null, ex);
         }
