@@ -14,13 +14,14 @@
             <h1>Optimización de Alimento </h1>
             <h2>Algoritmos Genéticos y Redes Bayesianas</h2>
         </center>
+        
         <p:dataTable var="u" value="#{loadAlimentos.list1}">
             <p:column headerText="Nombre">
                 <h:outputText value="#{u.name}" />
             </p:column>
 
             <p:column headerText="Tipo">
-                <h:outputText value="#{u.tip}" />
+                <h:outputText value="#{u.tipoAlimento.get(0)}" />
             </p:column>
 
             <p:column headerText="Fosforo">
@@ -46,7 +47,7 @@
 
                 <tr>
                     <td> 
-                        <p:selectOneMenu  value="" required="true">  
+                        <p:selectOneMenu  value="#{loadAlimentos.tipo}" required="true">  
                             <f:selectItem itemLabel="Selecione un tipo de Alimento " itemValue=""  />  
                             <f:selectItem itemLabel="Frutas" itemValue="1" />  
                             <f:selectItem itemLabel="Verduras" itemValue="2" />  
@@ -55,24 +56,11 @@
                 </tr>
                 <tr>
                     <td colspan="2" align="left" width="25">
-                        <p:commandButton value=" Obtener" action="#{PersonaBean.doGuardar}"/>
+                        <p:commandButton value=" Obtener" action="#{loadAlimentos.llamarRed}" update="resultadoalgoritmo"/>
                     </td>
                 </tr>
             </table>
-
-            <table width="70%" align="center" border="1">
-                <tr><h2 align="center">Listado de los mejores alimentos</h2></tr>
-                <tr>
-                    <th>Nombre</th>
-                    <th>sodio</th>
-                    <th>calcio</th>
-                    <th>hierro</th>
-                    <th>fostoro</th>
-                    <th>potacio</th>
-                    <th>valNutricional</th>
-
-                </tr>
-            </table>
+            <h:outputText value="#{loadAlimentos.resultadoAlgoritmo}" id="resultadoalgoritmo"></h:outputText>
 
         </h:form>
 
