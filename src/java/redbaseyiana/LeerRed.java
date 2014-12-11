@@ -27,7 +27,6 @@ import org.openmarkov.core.inference.InferenceAlgorithm;
 import org.openmarkov.core.model.network.EvidenceCase;
 import org.openmarkov.core.model.network.Finding;
 import org.openmarkov.core.model.network.ProbNet;
-import org.openmarkov.core.model.network.ProbNode;
 import org.openmarkov.core.model.network.Util;
 import org.openmarkov.core.model.network.Variable;
 import org.openmarkov.core.model.network.potential.TablePotential;
@@ -47,7 +46,7 @@ public class LeerRed implements Serializable{
         //InputStream file = new FileInputStream(new File(System.getProperty("user.dir") + "/src/java/archivo/" + nombrered));
         InputStream file = new FileInputStream(new File("E:\\DOC\\NetBeansProjects\\RedesBayesianasAlgoritmosGeneticos\\src\\java\\archivo\\" + nombrered));
         PGMXReader reader = new PGMXReader();
-        ProbNet prob = reader.loadProbNet(file,"").getProbNet();
+        ProbNet prob = reader.loadProbNet(file,parametro).getProbNet();
         EvidenceCase evidence = new EvidenceCase();
         try {
             //se introduce la presencia del estado y si pasa o no

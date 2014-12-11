@@ -6,44 +6,37 @@
 package algoritmogeneticos;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
 
 /**
  *
  * @author silvy
  */
-@ManagedBean
-@ViewScoped
+
 public class Alimentos implements Serializable {
 
     private String name;
-    private String name1;
     private double sodio;
     private double calcio;
     private double hierro;
     private double fostoro;
     private double potacio;
     private double valNutricional;
-    private List tipoAlimento;
-    private String tip;
-    
-   
+    private String tipoAlimento;
+
     public Alimentos() {
     }
 
-    public String getTip() {
-        return tip;
+   
+    public String getTipoAlimento() {
+        return tipoAlimento;
     }
 
-    public void setTip(String tip) {
-        this.tip = tip;
+    public void setTipoAlimento(String tipoAlimento) {
+        this.tipoAlimento = tipoAlimento;
     }
 
-     
-    public Alimentos(String name, double sodio, double calcio, double hierro, double fostoro, double potacio, double valNutricional, List tipoAlimento) {
+    public Alimentos(String name, double sodio, double calcio, double hierro, double fostoro, double potacio, double valNutricional, String tipoAlimento) {
         this.name = name;
         this.sodio = sodio;
         this.calcio = calcio;
@@ -53,15 +46,9 @@ public class Alimentos implements Serializable {
         this.valNutricional = valNutricional;
         this.tipoAlimento = tipoAlimento;
     }
-
-    public String getName1() {
-        return name1;
-    }
-
-    public void setName1(String name1) {
-        this.name1 = name1;
-    }
-   
+    
+    
+  
     public String getName() {
         return name;
     }
@@ -118,18 +105,6 @@ public class Alimentos implements Serializable {
         this.valNutricional = valNutricional;
     }
 
-    public List getTipoAlimento() {
-        return tipoAlimento;
-    }
-
-    public void setTipoAlimento(List tipoAlimento) {
-    
-        this.tipoAlimento = tipoAlimento;
-    }
-//    public void setTipoAlimento(String tipoAlimentos) {
-//        tipoAlimento.add(tipoAlimento);
-//    }
-
     @Override
     public String toString() {
         return "Alimento [Nombre=" + name + ", sodio (mg)=" + sodio
@@ -138,8 +113,5 @@ public class Alimentos implements Serializable {
                 + ", Valor Nutricional=" + valNutricional
                 + "]";
     }
-    public void presenta(){
-        this.name1=this.name;
     
-    }
 }

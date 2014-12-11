@@ -62,7 +62,7 @@ public class AlimentosFitnessFuncion extends FitnessFunction {
 
         while (it.hasNext()) {
             String genre = (String) it.next();
-            if (alim.getTipoAlimento().contains(genre)) {
+            if (alim.getTipoAlimento().equals(genre)) {
                 genreScore = genreScore + 1;
             }
         }

@@ -5,56 +5,46 @@
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns="http://www.w3.org/1999/xhtml"
                 >
 
     <ui:define name="content">
         <h:form title="datos Nutricional">
-            <table width="50%" align="center" border="0">
-                <tr>
-                    <td> <h2>Ingreso de Datos Nutricionales</h2></td>
-                </tr>
-                <tr>
-                    <td>Nombre:</td>
-                    <td> <h:inputText value="#{loadAlimentos.a.name}" /> </td>
-                </tr>
-                <tr>
-                    <td>sodio(mg):</td>
-                    <td> <h:inputText value="#{loadAlimentos.a.sodio}"/> </td>
-                </tr>
-                <tr>
-                    <td>calcio (mg):</td>
-                    <td> <h:inputText value="#{loadAlimentos.a.calcio}"/> </td>
-                </tr>
-                <tr>
-                    <td>hierro (mg):</td>
-                    <td> <h:inputText value="#{loadAlimentos.a.hierro}"/> </td>
-                </tr>
-                <tr>
-                    <td>fostoro (mg):</td>
-                    <td> <h:inputText value="#{loadAlimentos.a.fostoro}"/> </td>
-                </tr>
-                <tr>
-                    <td>potacio (mg):</td>
-                    <td> <h:inputText value="#{loadAlimentos.a.potacio}"/> </td>
-                </tr>
-                <tr>
-                    <td>Valor Nutricional:</td>
-                    <td> <h:inputText value=" " /> </td>
-                </tr>
-                <tr>
-                    <td>tipo Alimento:</td>
-                    <td><p:selectOneMenu value="#{loadAlimentos.a.tipoAlimento}" converter="tp_conv" >  
-                            <f:selectItem itemLabel="Selecione un alimento" itemValue=""  />  
-                            <f:selectItem itemLabel="Frutas" itemValue="frutaa" />  
-                            <f:selectItem itemLabel="Verduras" itemValue="verdura" />  
-                        </p:selectOneMenu></td>
-                </tr>
-                <tr>
-                    <td colspan="2" align="center">
-                        <h:commandButton value="Guardar" action="#{loadAlimentos.cargarAlimento}"/>
-                    </td>
-                </tr>
-            </table>
+            <center>
+            <p:panel>
+                <h:panelGrid columns="3">
+                    <h:outputText value="Nombre"></h:outputText>
+                    <h:inputText value="#{loadAlimentos.a.name}" id="nombres"/>
+                    <h:message for="nombres"/>
+                    <h:outputText value="Sodio(mg)"></h:outputText>
+                    <h:inputText value="#{loadAlimentos.a.sodio}" id="sodios"/> 
+                    <h:message for="sodios"/>
+                    <h:outputText value="Calcio(mg)"></h:outputText>
+                    <h:inputText value="#{loadAlimentos.a.calcio}" id="calcios"/> 
+                    <h:message for="calcios"/>
+                    <h:outputText value="Hierro(mg)"></h:outputText>
+                    <h:inputText value="#{loadAlimentos.a.hierro}" id="hierros"/> 
+                    <h:message for="hierros"/>
+                    <h:outputText value="Fosforo(mg)"></h:outputText>
+                    <h:inputText value="#{loadAlimentos.a.fostoro}" id="fosforos"/> 
+                    <h:message for="fosforos"/>
+                    <h:outputText value="Potasio(mg)"></h:outputText>
+                    <h:inputText value="#{loadAlimentos.a.potacio}" id="potasios"/> 
+                    <h:message for="potasios"/>
+                    <h:outputText value="Valor Nutricional"></h:outputText>
+                    <h:inputText value="#{loadAlimentos.a.valNutricional}" id="nut"/> 
+                    <h:message for="nut"/>
+                    <h:outputText value="Tipo Alimento"></h:outputText>
+                    <p:selectOneMenu value="#{loadAlimentos.a.tipoAlimento}"  id="menu">  
+                        <f:selectItem itemLabel="Selecione un alimento" itemValue=""  />  
+                        <f:selectItem itemLabel="Frutas" itemValue="fruta" />  
+                        <f:selectItem itemLabel="Verduras" itemValue="verdura" />  
+                    </p:selectOneMenu>
+                    <h:message for="menu"/>
+                </h:panelGrid>
+            </p:panel>
+            <h:commandButton value="Guardar" action="#{loadAlimentos.cargarAlimento}"/>
+            </center>
         </h:form>
     </ui:define>
 

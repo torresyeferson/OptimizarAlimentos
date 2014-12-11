@@ -1,27 +1,20 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
-    <h:head>
-        <title>OptimosAlimentos</title>
-    </h:head>
-    <h:body>
-        <center>
-            <h1>Optimización de Alimento </h1>
-            <h2>Algoritmos Genéticos y Redes Bayesianas</h2>
-        </center>
-        
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./template/plantilla.xhtml" 
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="content">
+
         <p:dataTable var="u" value="#{loadAlimentos.list1}">
             <p:column headerText="Nombre">
                 <h:outputText value="#{u.name}" />
             </p:column>
 
             <p:column headerText="Tipo">
-                <h:outputText value="#{u.tipoAlimento.get(0)}" />
+                <h:outputText value="#{u.tipoAlimento}" />
             </p:column>
 
             <p:column headerText="Fosforo">
@@ -31,19 +24,26 @@
             <p:column headerText="Hierro">
                 <h:outputText value="#{u.hierro}" />
             </p:column>
-            <p:column headerText="Potacio">
+            <p:column headerText="Potasio">
                 <h:outputText value="#{u.potacio}" />
+            </p:column>
+            <p:column headerText="Calcio">
+                <h:outputText value="#{u.calcio}" />
+            </p:column>
+            <p:column headerText="Sodio">
+                <h:outputText value="#{u.sodio}" />
             </p:column>
         </p:dataTable>
 
         <h:form>
             <p:commandLink value="Nuevo" action="#{loadAlimentos.accionNuevo()}" />
         </h:form>
-        
+
         <h:form>
+            <center>
             <table width="70%" align="center" border="0">
 
-                <td> <h2>Elija un tipo de alimento </h2> </td>
+                <td> <h3>Elija un tipo de alimento </h3> </td>
 
                 <tr>
                     <td> 
@@ -56,16 +56,18 @@
                 </tr>
                 <tr>
                     <td colspan="2" align="left" width="25">
-                        <p:commandButton value=" Obtener" action="#{loadAlimentos.llamarRed}" update="resultadoalgoritmo"/>
+                        <p:commandButton value=" Obtener Resultado Algoritmo" action="#{loadAlimentos.llamarRed()}" update="resultadoalgoritmo"/>
                     </td>
                 </tr>
             </table>
             <h:outputText value="#{loadAlimentos.resultadoAlgoritmo}" id="resultadoalgoritmo"></h:outputText>
-        <p:commandButton value=" Obtener" action="#{loadAlimentos.llamarBayes}" update="resultadobayes"/>
+            <br></br>
+            <p:commandButton value=" Obtener resultado Bayes" action="#{loadAlimentos.llamarBayes}" update="resultadobayes"/>
             <h:outputText value="#{loadAlimentos.resultadoBayes}" id="resultadobayes"></h:outputText>
+            </center>
         </h:form>
 
 
-    </h:body>
-</html>
+    </ui:define>
 
+</ui:composition>
