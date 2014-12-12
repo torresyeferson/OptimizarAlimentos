@@ -105,10 +105,10 @@ public class LoadAlimentos {
     public void llamarBayes() {
         LeerRed l = new LeerRed();
         try {
-            if (tipo == "verdura") {
+            if ("verdura".equals(tipo)) {
                 resultadoBayes=l.LeerArchivo("verduras.pgmx","Col");
             } else {
-                System.out.println(l.LeerArchivo("frutas.pgmx","Arandanos"));
+                resultadoBayes=l.LeerArchivo("frutas.pgmx","Arandanos");
             }
         } catch (FileNotFoundException ex) {
             Logger.getLogger(LoadAlimentos.class.getName()).log(Level.SEVERE, null, ex);
